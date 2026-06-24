@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Singh Bazaar Brampton | Fresh Indian Grocery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..700&family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FFFAF0;
+  --paper:#FFFDF9;
+  --green-900:#0E3D24;
+  --green-800:#125330;
+  --green-700:#1B7A3D;
+  --green-600:#1F8F47;
+  --green-500:#2FA84F;
+  --green-100:#E3F5E6;
+  --red-700:#A3122B;
+  --red-600:#C71F3C;
+  --red-500:#E63946;
+  --gold-500:#E8A23B;
+  --gold-100:#FCEBCB;
+  --ink:#231F18;
+  --ink-soft:#5C5548;
+  --gray-300:#E7E1D4;
+  --gray-200:#F1ECE1;
+  --shadow-sm:0 2px 8px rgba(35,31,24,.08);
+  --shadow-md:0 8px 24px rgba(35,31,24,.12);
+  --shadow-lg:0 16px 40px rgba(35,31,24,.22);
+  --radius:18px;
+  --font-display:'Fraunces',serif;
+  --font-body:'Mukta',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html,body{font-family:var(--font-body);color:var(--ink);background:var(--gray-200);}
+img{max-width:100%;display:block;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+input,textarea,select{font-family:inherit;font-size:15px;}
+::-webkit-scrollbar{display:none;}
+*{scrollbar-width:none;}
+
+#app{max-width:480px;margin:0 auto;background:var(--cream);min-height:100vh;position:relative;display:flex;flex-direction:column;overflow-x:hidden;}
+@media(min-width:481px){
+  body{padding:24px 0;}
+  #app{box-shadow:var(--shadow-lg);border-radius:28px;min-height:92vh;overflow:hidden;}
+}
+
+/* ---------- TOPBAR ---------- */
+.topbar{position:sticky;top:0;z-index:400;background:linear-gradient(135deg,var(--green-800),var(--green-600));color:#fff;padding:16px 18px 14px;box-shadow:var(--shadow-sm);}
+.topbar-row{display:flex;justify-content:space-between;align-items:center;}
+.brand{font-family:var(--font-display);font-weight:800;font-size:23px;letter-spacing:.2px;display:flex;align-items:center;gap:8px;}
+.brand .leaf{font-size:22px;}
+.brand-sub{font-size:11.5px;opacity:.85;margin-top:2px;font-weight:500;letter-spacing:.3px;}
+.icon-btn{background:rgba(255,255,255,.16);width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;position:relative;}
+.icon-btn:active{transform:scale(.92);}
+.cart-badge{position:absolute;top:-4px;right:-4px;background:var(--red-600);color:#fff;font-size:10px;font-weight:700;min-width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:0 3px;border:2px solid var(--green-800);}
+
+.marquee-wrap{background:var(--red-700);color:#fff;overflow:hidden;white-space:nowrap;padding:7px 0;font-size:12.5px;font-weight:600;letter-spacing:.3px;}
+.marquee-track{display:inline-block;animation:marquee 16s linear infinite;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ---------- SEARCH ---------- */
+.search-section{padding:14px 16px 6px;background:var(--cream);}
+.search-box{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--gray-300);border-radius:14px;padding:11px 14px;box-shadow:var(--shadow-sm);}
+.search-box input{flex:1;border:none;outline:none;font-size:14.5px;background:transparent;color:var(--ink);}
+.search-box span{font-size:16px;opacity:.6;}
+
+/* ---------- CATEGORY CHIPS ---------- */
+.chips{display:flex;gap:9px;overflow-x:auto;padding:12px 16px 14px;}
+.chip{flex:0 0 auto;display:flex;align-items:center;gap:6px;background:#fff;border:1.5px solid var(--gray-300);border-radius:999px;padding:9px 15px;font-size:13px;font-weight:600;color:var(--ink-soft);transition:.15s;}
+.chip.active{background:var(--green-700);color:#fff;border-color:var(--green-700);box-shadow:var(--shadow-sm);}
+.chip.beer-chip.active{background:var(--red-600);border-color:var(--red-600);}
+.chip:active{transform:scale(.96);}
+
+/* ---------- SPECIALS BANNER ---------- */
+.specials-banner{margin:0 16px 16px;border-radius:var(--radius);padding:18px 18px;background:linear-gradient(120deg,var(--gold-500),var(--red-600) 90%);color:#fff;position:relative;overflow:hidden;box-shadow:var(--shadow-md);cursor:pointer;}
+.specials-banner::after{content:"";position:absolute;right:-30px;top:-30px;width:140px;height:140px;background:rgba(255,255,255,.14);border-radius:50%;}
+.specials-banner h3{font-family:var(--font-display);font-weight:800;font-size:21px;margin-bottom:3px;}
+.specials-banner p{font-size:12.5px;opacity:.95;font-weight:500;}
+.specials-banner .tag{position:absolute;top:14px;right:16px;font-size:26px;}
+
+/* ---------- FLYER PAGE ---------- */
+.flyer-date-pill{display:inline-block;background:var(--green-100);color:var(--green-800);font-weight:700;font-size:13px;padding:6px 14px;border-radius:999px;margin-bottom:14px;}
+.flyer-image-wrap{min-height:140px;}
+.flyer-image-wrap img{width:100%;border-radius:16px;box-shadow:var(--shadow-md);}
+
+/* ---------- ALCOHOL NOTICE INLINE ---------- */
+.alcohol-banner{margin:0 16px 16px;border-radius:var(--radius);padding:16px;background:#2A1212;color:#fff;border:1.5px solid var(--red-700);}
+.alcohol-banner h3{font-family:var(--font-display);font-size:17px;margin-bottom:4px;}
+.alcohol-banner p{font-size:12.5px;opacity:.9;line-height:1.5;}
+
+/* ---------- PRODUCT GRID ---------- */
+.section-title{padding:4px 16px 10px;font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--green-900);}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;padding:0 16px 90px;}
+.empty-state{padding:60px 20px;text-align:center;color:var(--ink-soft);}
+.empty-state .e{font-size:42px;margin-bottom:10px;}
+
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;animation:cardIn .4s ease both;}
+@keyframes cardIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.card-image{position:relative;background:linear-gradient(150deg,var(--green-100),#fff);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;font-size:46px;}
+.card-image img{width:100%;height:100%;object-fit:cover;}
+.badge-row{position:absolute;top:7px;left:7px;display:flex;flex-direction:column;gap:4px;}
+.tiny-badge{font-size:9.5px;font-weight:700;padding:3px 7px;border-radius:6px;color:#fff;letter-spacing:.2px;}
+.tiny-badge.special{background:var(--red-600);}
+.tiny-badge.best{background:var(--gold-500);color:#3a2400;}
+.tiny-badge.out{background:#777;}
+.card-body{padding:10px 11px 12px;display:flex;flex-direction:column;gap:4px;flex:1;}
+.card-name{font-size:13.3px;font-weight:700;line-height:1.25;min-height:33px;}
+.card-size{font-size:11px;color:var(--ink-soft);}
+.card-bottom{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:6px;}
+.card-price{font-family:var(--font-display);font-weight:800;color:var(--red-700);font-size:15.5px;}
+.stock-pill{font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:6px;}
+.stock-pill.in{background:var(--green-100);color:var(--green-700);}
+.stock-pill.out{background:#F2E1E1;color:var(--red-700);}
+
+.add-btn{background:var(--green-700);color:#fff;font-size:12.5px;font-weight:700;padding:8px 0;border-radius:10px;width:100%;margin-top:8px;transition:.15s;}
+.add-btn:active{transform:scale(.96);}
+.add-btn.disabled{background:var(--gray-300);color:#999;}
+.stepper{display:flex;align-items:center;justify-content:space-between;background:var(--green-100);border-radius:10px;margin-top:8px;padding:4px;}
+.stepper button{width:26px;height:26px;border-radius:8px;background:#fff;color:var(--green-700);font-weight:800;font-size:15px;box-shadow:var(--shadow-sm);}
+.stepper span{font-weight:700;font-size:13px;color:var(--green-900);}
+
+/* ---------- BOTTOM NAV ---------- */
+.bottom-nav{position:sticky;bottom:0;z-index:500;background:#fff;border-top:1.5px solid var(--gray-300);display:flex;justify-content:space-around;padding:9px 4px calc(9px + env(safe-area-inset-bottom));box-shadow:0 -4px 16px rgba(0,0,0,.06);margin-top:auto;}
+.nav-item{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10.5px;font-weight:600;color:var(--ink-soft);position:relative;padding:4px 10px;}
+.nav-item .ic{font-size:19px;}
+.nav-item.active{color:var(--green-700);}
+.nav-item .navbadge{position:absolute;top:-2px;right:0;background:var(--red-600);color:#fff;font-size:9px;font-weight:700;min-width:15px;height:15px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+
+/* ---------- OVERLAYS / MODALS ---------- */
+.modal-overlay{position:fixed;inset:0;background:rgba(20,15,10,.5);z-index:1000;display:flex;align-items:flex-end;justify-content:center;}
+.modal-overlay.center{align-items:center;padding:20px;}
+.modal-overlay.hidden{display:none;}
+.sheet{background:var(--cream);width:100%;max-width:480px;border-radius:22px 22px 0 0;max-height:92vh;display:flex;flex-direction:column;animation:slideUp .28s ease;}
+@keyframes slideUp{from{transform:translateY(40px);opacity:.6;}to{transform:translateY(0);opacity:1;}}
+.full-sheet{background:var(--cream);width:100%;max-width:480px;height:100%;display:flex;flex-direction:column;}
+.sheet-header{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1.5px solid var(--gray-300);background:#fff;border-radius:22px 22px 0 0;}
+.full-sheet .sheet-header{border-radius:0;}
+.sheet-header h2{font-family:var(--font-display);font-size:18px;font-weight:800;color:var(--green-900);}
+.close-x{font-size:18px;width:32px;height:32px;border-radius:50%;background:var(--gray-200);display:flex;align-items:center;justify-content:center;}
+.sheet-body{padding:16px 18px;overflow-y:auto;flex:1;}
+.sheet-footer{padding:14px 18px calc(14px + env(safe-area-inset-bottom));border-top:1.5px solid var(--gray-300);background:#fff;}
+
+/* ---------- AGE GATE ---------- */
+.age-card{background:#fff;border-radius:20px;padding:28px 24px;text-align:center;max-width:340px;box-shadow:var(--shadow-lg);}
+.age-card .e{font-size:48px;margin-bottom:10px;}
+.age-card h2{font-family:var(--font-display);font-size:21px;color:var(--red-700);margin-bottom:8px;}
+.age-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.6;margin-bottom:18px;}
+.age-actions{display:flex;gap:10px;}
+
+/* ---------- CART ---------- */
+.cart-item{display:flex;gap:11px;padding:12px 0;border-bottom:1px solid var(--gray-300);}
+.cart-thumb{width:56px;height:56px;border-radius:12px;background:var(--green-100);display:flex;align-items:center;justify-content:center;font-size:26px;flex:0 0 auto;overflow:hidden;}
+.cart-thumb img{width:100%;height:100%;object-fit:cover;}
+.cart-info{flex:1;}
+.cart-info .nm{font-weight:700;font-size:13.5px;}
+.cart-info .sz{font-size:11px;color:var(--ink-soft);margin-bottom:5px;}
+.cart-row-bottom{display:flex;align-items:center;justify-content:space-between;}
+.cart-price{font-weight:800;color:var(--red-700);font-size:13.5px;font-family:var(--font-display);}
+.remove-link{font-size:11px;color:var(--red-600);font-weight:700;margin-left:10px;}
+.totals-row{display:flex;justify-content:space-between;font-size:14px;padding:5px 0;}
+.totals-row.grand{font-size:17px;font-weight:800;color:var(--green-900);font-family:var(--font-display);padding-top:10px;border-top:1.5px dashed var(--gray-300);margin-top:6px;}
+
+/* ---------- BUTTONS / FORMS ---------- */
+.btn{display:flex;align-items:center;justify-content:center;gap:7px;border-radius:13px;font-weight:700;font-size:14.5px;padding:13px 16px;width:100%;transition:.15s;}
+.btn:active{transform:scale(.97);}
+.btn-primary{background:var(--green-700);color:#fff;box-shadow:0 6px 16px rgba(27,122,61,.3);}
+.btn-red{background:var(--red-600);color:#fff;box-shadow:0 6px 16px rgba(199,31,60,.3);}
+.btn-outline{background:#fff;color:var(--green-800);border:1.6px solid var(--green-700);}
+.btn-whatsapp{background:#25D366;color:#fff;}
+.btn[disabled]{opacity:.45;pointer-events:none;}
+.btn-sm{padding:8px 14px;font-size:12.5px;width:auto;}
+
+.form-group{margin-bottom:14px;}
+.form-group label{display:block;font-size:12.5px;font-weight:700;color:var(--ink-soft);margin-bottom:5px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;border:1.5px solid var(--gray-300);border-radius:11px;padding:11px 13px;outline:none;background:#fff;font-size:14px;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--green-600);}
+.form-group textarea{resize:vertical;min-height:64px;}
+.radio-group{display:flex;gap:10px;}
+.radio-opt{flex:1;border:1.6px solid var(--gray-300);border-radius:12px;padding:11px;text-align:center;font-weight:700;font-size:13px;color:var(--ink-soft);}
+.radio-opt.checked{border-color:var(--green-700);background:var(--green-100);color:var(--green-800);}
+.check-row{display:flex;gap:9px;align-items:flex-start;background:#FFF4E0;border:1.4px solid var(--gold-500);border-radius:12px;padding:12px;font-size:12.5px;line-height:1.5;color:#5b3d12;}
+.check-row input{margin-top:2px;width:17px;height:17px;flex:0 0 auto;}
+
+.alert-box{background:#2A1212;color:#fff;border-radius:13px;padding:13px 14px;font-size:12px;line-height:1.6;margin-bottom:14px;border:1.4px solid var(--red-700);}
+.alert-box b{color:var(--gold-500);}
+
+/* ---------- CONFIRMATION ---------- */
+.confirm-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 26px;}
+.confirm-wrap .tick{width:78px;height:78px;border-radius:50%;background:var(--green-100);display:flex;align-items:center;justify-content:center;font-size:42px;color:var(--green-700);margin-bottom:18px;animation:pop .35s ease;}
+@keyframes pop{from{transform:scale(0);}to{transform:scale(1);}}
+.confirm-wrap h2{font-family:var(--font-display);font-size:23px;color:var(--green-900);margin-bottom:6px;}
+.confirm-wrap p{font-size:13.5px;color:var(--ink-soft);margin-bottom:4px;}
+.order-id-tag{display:inline-block;background:var(--green-100);color:var(--green-800);font-weight:700;font-size:13px;padding:5px 14px;border-radius:999px;margin:10px 0 22px;}
+.confirm-actions{width:100%;display:flex;flex-direction:column;gap:10px;}
+
+/* ---------- ADMIN ---------- */
+.admin-tabs{display:flex;gap:8px;padding:14px 18px 0;background:#fff;}
+.a-tab{flex:1;text-align:center;padding:10px;border-radius:11px 11px 0 0;font-weight:700;font-size:13px;color:var(--ink-soft);border-bottom:3px solid transparent;}
+.a-tab.active{color:var(--green-700);border-color:var(--green-700);}
+.admin-product-row{display:flex;align-items:center;gap:11px;background:#fff;border-radius:13px;padding:10px;margin-bottom:10px;box-shadow:var(--shadow-sm);}
+.admin-thumb{width:48px;height:48px;border-radius:10px;background:var(--green-100);display:flex;align-items:center;justify-content:center;font-size:22px;flex:0 0 auto;overflow:hidden;}
+.admin-thumb img{width:100%;height:100%;object-fit:cover;}
+.admin-info{flex:1;min-width:0;}
+.admin-info .nm{font-weight:700;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.admin-info .meta{font-size:11px;color:var(--ink-soft);}
+.admin-actions{display:flex;gap:6px;}
+.icon-sq{width:32px;height:32px;border-radius:9px;background:var(--gray-200);display:flex;align-items:center;justify-content:center;font-size:14px;}
+.fab-add{position:sticky;bottom:14px;margin-left:auto;width:fit-content;}
+.login-card{background:#fff;border-radius:20px;padding:26px 22px;max-width:340px;width:100%;box-shadow:var(--shadow-lg);}
+.login-card h2{font-family:var(--font-display);text-align:center;color:var(--green-900);font-size:21px;margin-bottom:4px;}
+.login-card .sub{text-align:center;font-size:12px;color:var(--ink-soft);margin-bottom:18px;}
+.forgot-link{font-size:12px;color:var(--green-700);font-weight:700;text-align:center;display:block;margin-top:10px;}
+.recover-msg{font-size:11.5px;color:var(--red-700);background:#FBEAEA;border-radius:9px;padding:9px;margin-top:8px;text-align:center;display:none;}
+.err-msg{color:var(--red-600);font-size:12px;font-weight:600;margin-top:6px;display:none;}
+.img-preview-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.img-preview{width:64px;height:64px;border-radius:12px;background:var(--green-100);display:flex;align-items:center;justify-content:center;font-size:26px;overflow:hidden;flex:0 0 auto;}
+.img-preview img{width:100%;height:100%;object-fit:cover;}
+.chk-line{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;margin-bottom:10px;}
+.chk-line input{width:17px;height:17px;}
+
+/* ---------- TOAST ---------- */
+#toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--green-900);color:#fff;padding:11px 20px;border-radius:999px;font-size:13px;font-weight:600;z-index:1300;opacity:0;transition:.25s;pointer-events:none;max-width:90%;text-align:center;}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-row">
+      <div>
+        <div class="brand"><span class="leaf">🛒</span><span id="storeNameTxt">Singh Bazaar</span></div>
+        <div class="brand-sub">Brampton • Fresh Indian Grocery</div>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <button class="icon-btn" onclick="openAdminEntry()">👤</button>
+        <button class="icon-btn" onclick="openCart()">🛍️<span class="cart-badge" id="cartBadgeTop" style="display:none;">0</span></button>
+      </div>
+    </div>
+  </header>
+  <div class="marquee-wrap"><div class="marquee-track" id="marqueeTrack">Loading...</div></div>
+
+  <!-- SEARCH -->
+  <div class="search-section">
+    <div class="search-box">
+      <span>🔍</span>
+      <input type="text" id="searchInput" placeholder="Search atta, paneer, spices, snacks..." oninput="renderProducts()">
+    </div>
+  </div>
+
+  <!-- CATEGORY CHIPS -->
+  <div class="chips" id="chipsRow"></div>
+
+  <!-- BANNERS -->
+  <div id="bannerArea"></div>
+
+  <!-- PRODUCTS -->
+  <div class="section-title" id="sectionTitle">All Products</div>
+  <div class="grid" id="productGrid"></div>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" id="navHome" onclick="goHome()"><span class="ic">🏠</span>Home</button>
+    <button class="nav-item" onclick="focusSearch()"><span class="ic">🔍</span>Search</button>
+    <button class="nav-item" onclick="openCart()"><span class="ic">🛍️</span>Cart<span class="navbadge" id="cartBadgeNav" style="display:none;">0</span></button>
+    <button class="nav-item" onclick="openAdminEntry()"><span class="ic">⚙️</span>Admin</button>
+  </nav>
+</div>
+
+<!-- AGE GATE -->
+<div class="modal-overlay center hidden" id="ageGateModal">
+  <div class="age-card">
+    <div class="e">🔞</div>
+    <h2>Age Verification</h2>
+    <p>Alcohol products are restricted to customers <b>19 years or older</b>. Valid government ID is required at pickup or delivery. Please confirm your age to continue.</p>
+    <div class="age-actions">
+      <button class="btn btn-outline" onclick="declineAge()">Cancel</button>
+      <button class="btn btn-red" onclick="confirmAge()">I'm 19+</button>
+    </div>
+  </div>
+</div>
+
+<!-- CART DRAWER -->
+<div class="modal-overlay hidden" id="cartModal">
+  <div class="sheet" style="max-height:88vh;">
+    <div class="sheet-header">
+      <h2>Your Cart 🛍️</h2>
+      <button class="close-x" onclick="closeModal('cartModal')">✕</button>
+    </div>
+    <div class="sheet-body" id="cartBody"></div>
+    <div class="sheet-footer" id="cartFooter"></div>
+  </div>
+</div>
+
+<!-- CHECKOUT -->
+<div class="modal-overlay hidden" id="checkoutModal">
+  <div class="full-sheet">
+    <div class="sheet-header">
+      <h2>Checkout</h2>
+      <button class="close-x" onclick="closeModal('checkoutModal')">✕</button>
+    </div>
+    <div class="sheet-body">
+      <form id="checkoutForm" onsubmit="submitOrder(event)">
+        <div id="checkoutAlcoholNotice"></div>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="custName" required placeholder="e.g. Harpreet Singh">
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" id="custPhone" required placeholder="e.g. (905) 555-1234">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="custEmail" required placeholder="e.g. you@example.com">
+        </div>
+        <div class="form-group">
+          <label>Order Type</label>
+          <div class="radio-group">
+            <div class="radio-opt checked" id="optPickup" onclick="setFulfillment('pickup')">📍 Pickup</div>
+            <div class="radio-opt" id="optDelivery" onclick="setFulfillment('delivery')">🚚 Delivery</div>
+          </div>
+        </div>
+        <div class="form-group" id="addressGroup" style="display:none;">
+          <label>Delivery Address</label>
+          <textarea id="custAddress" placeholder="Street, Unit, City, Postal Code"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Order Notes (optional)</label>
+          <textarea id="custNotes" placeholder="Substitutions, ripeness preference, etc."></textarea>
+        </div>
+        <div id="checkoutAlcoholCheck"></div>
+        <div id="checkoutErr" class="err-msg"></div>
+        <button type="submit" class="btn btn-primary">Place Order 🛒</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRMATION -->
+<div class="modal-overlay hidden" id="confirmModal">
+  <div class="full-sheet">
+    <div class="confirm-wrap">
+      <div class="tick">✅</div>
+      <h2>Order Placed!</h2>
+      <p>Thank you! Your order has been sent to Singh Bazaar Brampton.</p>
+      <p style="font-size:12px;">We'll confirm by email/phone shortly.</p>
+      <div class="order-id-tag" id="confirmOrderId">SB-000000</div>
+      <div class="confirm-actions">
+        <button class="btn btn-whatsapp" id="confirmWhatsappBtn">💬 Message us on WhatsApp</button>
+        <button class="btn btn-outline" onclick="closeAllAndReset()">Continue Shopping</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FLYER PAGE -->
+<div class="modal-overlay hidden" id="flyerModal">
+  <div class="full-sheet">
+    <div class="sheet-header">
+      <h2>📰 Weekly Flyer</h2>
+      <button class="close-x" onclick="closeModal('flyerModal')">✕</button>
+    </div>
+    <div class="sheet-body">
+      <div class="flyer-date-pill" id="flyerDateRangeTxt">Dates coming soon</div>
+      <div class="flyer-image-wrap" id="flyerImageWrap"></div>
+      <button class="btn btn-outline" style="margin-top:16px;" onclick="viewSpecialProducts()">View Weekly Special Products</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN LOGIN -->
+<div class="modal-overlay center hidden" id="adminLoginModal">
+  <div class="login-card">
+    <h2>Admin Login</h2>
+    <div class="sub">Singh Bazaar Brampton — Store Management</div>
+    <form onsubmit="handleAdminLogin(event)">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="adminEmail" required placeholder="admin email">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="adminPass" required placeholder="password">
+      </div>
+      <div class="err-msg" id="adminErr">Incorrect email or password.</div>
+      <button type="submit" class="btn btn-primary" style="margin-top:6px;">Login</button>
+    </form>
+    <a class="forgot-link" onclick="toggleRecover()">Forgot password?</a>
+    <div class="recover-msg" id="recoverMsg">For password recovery, contact singhbazaarbrampton@gmail.com</div>
+    <button class="btn btn-outline" style="margin-top:14px;" onclick="closeModal('adminLoginModal')">Cancel</button>
+  </div>
+</div>
+
+<!-- ADMIN DASHBOARD -->
+<div class="modal-overlay hidden" id="adminDashModal">
+  <div class="full-sheet">
+    <div class="sheet-header">
+      <h2>Admin Dashboard</h2>
+      <div style="display:flex;gap:8px;">
+        <button class="btn-sm btn btn-outline" onclick="logoutAdmin()">Logout</button>
+        <button class="close-x" onclick="closeModal('adminDashModal')">✕</button>
+      </div>
+    </div>
+    <div class="admin-tabs">
+      <div class="a-tab active" id="tabProducts" onclick="showAdminTab('products')">Products</div>
+      <div class="a-tab" id="tabSettings" onclick="showAdminTab('settings')">Store Settings</div>
+    </div>
+    <div class="sheet-body" id="adminBody"></div>
+  </div>
+</div>
+
+<!-- PRODUCT FORM -->
+<div class="modal-overlay hidden" id="productFormModal" style="z-index:1100;">
+  <div class="full-sheet">
+    <div class="sheet-header">
+      <h2 id="productFormTitle">Add Product</h2>
+      <button class="close-x" onclick="closeModal('productFormModal')">✕</button>
+    </div>
+    <div class="sheet-body">
+      <form id="productForm" onsubmit="saveProduct(event)">
+        <input type="hidden" id="pfId">
+        <div class="img-preview-row">
+          <div class="img-preview" id="pfImgPreview">🛍️</div>
+          <div style="flex:1;">
+            <label style="font-size:12px;font-weight:700;color:var(--ink-soft);display:block;margin-bottom:5px;">Product Image (optional)</label>
+            <input type="file" accept="image/*" id="pfImageInput" onchange="handleImageUpload(event)">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Product Name</label>
+          <input type="text" id="pfName" required placeholder="e.g. Aashirvaad Atta">
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <select id="pfCategory" required onchange="onCategoryChange()">
+            <option value="atta-rice">Atta & Rice</option>
+            <option value="dairy">Dairy</option>
+            <option value="frozen">Frozen</option>
+            <option value="snacks">Snacks</option>
+            <option value="spices">Spices</option>
+            <option value="drinks">Drinks</option>
+            <option value="produce">Produce</option>
+            <option value="beer">Beer 19+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Size / Quantity</label>
+          <input type="text" id="pfSize" required placeholder="e.g. 5kg, 500g, 6-pack">
+        </div>
+        <div class="form-group">
+          <label>Price (CAD)</label>
+          <input type="number" id="pfPrice" required step="0.01" min="0" placeholder="e.g. 9.99">
+        </div>
+        <div class="form-group">
+          <label>Fallback Emoji Icon</label>
+          <input type="text" id="pfEmoji" maxlength="4" placeholder="🌾">
+        </div>
+        <div class="form-group">
+          <label>Stock Status</label>
+          <select id="pfStock">
+            <option value="in">In Stock</option>
+            <option value="out">Out of Stock</option>
+          </select>
+        </div>
+        <div class="chk-line"><input type="checkbox" id="pfSpecial"> Mark as Weekly Special 🔥</div>
+        <div class="chk-line"><input type="checkbox" id="pfBest"> Mark as Best Seller ⭐</div>
+        <button type="submit" class="btn btn-primary">Save Product</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+/* ============ CONSTANTS ============ */
+const ADMIN_EMAIL = "singhbazaarbrampton@gmail.com";
+const ADMIN_PASS = "Admin@12345";
+const STORE_EMAIL = "singhbazaarbrampton@gmail.com";
+const CATEGORY_EMOJI = {"atta-rice":"🌾","dairy":"🥛","frozen":"🧊","snacks":"🍿","spices":"🌶️","drinks":"🥤","produce":"🥬","beer":"🍺"};
+const CATEGORY_LABEL = {"atta-rice":"Atta & Rice","dairy":"Dairy","frozen":"Frozen","snacks":"Snacks","spices":"Spices","drinks":"Drinks","produce":"Produce","beer":"Beer 19+"};
+const CHIPS = [
+  {id:"all",label:"All",emoji:"🛍️"},
+  {id:"atta-rice",label:"Atta & Rice",emoji:"🌾"},
+  {id:"dairy",label:"Dairy",emoji:"🥛"},
+  {id:"frozen",label:"Frozen",emoji:"🧊"},
+  {id:"snacks",label:"Snacks",emoji:"🍿"},
+  {id:"spices",label:"Spices",emoji:"🌶️"},
+  {id:"drinks",label:"Drinks",emoji:"🥤"},
+  {id:"produce",label:"Produce",emoji:"🥬"},
+  {id:"special",label:"Weekly Flyer Deals",emoji:"📰"},
+  {id:"beer",label:"Beer 19+",emoji:"🍺"}
+];
+
+/* ============ DEFAULT DATA ============ */
+function defaultProducts(){
+  return [
+    {id:"p1",name:"Aashirvaad Atta Whole Wheat Flour",category:"atta-rice",size:"10kg",price:14.99,stock:"in",special:false,best:true,emoji:"🌾",image:null},
+    {id:"p2",name:"India Gate Basmati Rice",category:"atta-rice",size:"5kg",price:19.99,stock:"in",special:true,best:false,emoji:"🍚",image:null},
+    {id:"p3",name:"Daawat Rozana Gold Rice",category:"atta-rice",size:"10kg",price:24.99,stock:"in",special:false,best:false,emoji:"🍚",image:null},
+    {id:"p4",name:"Amul Butter",category:"dairy",size:"500g",price:7.49,stock:"in",special:false,best:false,emoji:"🧈",image:null},
+    {id:"p5",name:"Fresh Paneer",category:"dairy",size:"400g",price:5.99,stock:"in",special:false,best:true,emoji:"🧀",image:null},
+    {id:"p6",name:"Lala Yogurt (Dahi)",category:"dairy",size:"1.75kg",price:4.99,stock:"in",special:false,best:false,emoji:"🥛",image:null},
+    {id:"p7",name:"Deep Frozen Samosas (24pc)",category:"frozen",size:"800g",price:8.99,stock:"in",special:false,best:false,emoji:"🥟",image:null},
+    {id:"p8",name:"Frozen Mixed Vegetables",category:"frozen",size:"1kg",price:4.49,stock:"in",special:false,best:false,emoji:"🥦",image:null},
+    {id:"p9",name:"Haldiram Frozen Paratha (5pc)",category:"frozen",size:"800g",price:5.49,stock:"out",special:false,best:false,emoji:"🫓",image:null},
+    {id:"p10",name:"Haldiram Aloo Bhujia",category:"snacks",size:"400g",price:4.99,stock:"in",special:false,best:false,emoji:"🥨",image:null},
+    {id:"p11",name:"Britannia Good Day Cookies",category:"snacks",size:"600g",price:3.99,stock:"in",special:false,best:true,emoji:"🍪",image:null},
+    {id:"p12",name:"Lay's India's Magic Masala",category:"snacks",size:"170g",price:2.49,stock:"in",special:false,best:false,emoji:"🍟",image:null},
+    {id:"p13",name:"MDH Garam Masala",category:"spices",size:"100g",price:3.49,stock:"in",special:false,best:false,emoji:"🌶️",image:null},
+    {id:"p14",name:"Everest Turmeric Powder (Haldi)",category:"spices",size:"200g",price:2.99,stock:"in",special:false,best:false,emoji:"🟡",image:null},
+    {id:"p15",name:"Shan Chicken Curry Masala",category:"spices",size:"100g",price:2.79,stock:"in",special:false,best:false,emoji:"🌶️",image:null},
+    {id:"p16",name:"Thums Up Soft Drink",category:"drinks",size:"2L",price:2.99,stock:"in",special:false,best:false,emoji:"🥤",image:null},
+    {id:"p17",name:"Tata Tea Premium",category:"drinks",size:"1kg",price:9.99,stock:"in",special:true,best:false,emoji:"🍵",image:null},
+    {id:"p18",name:"Frooti Mango Drink",category:"drinks",size:"1.2L",price:3.49,stock:"in",special:false,best:false,emoji:"🧃",image:null},
+    {id:"p19",name:"Fresh Tomatoes",category:"produce",size:"1kg",price:2.99,stock:"in",special:false,best:false,emoji:"🍅",image:null},
+    {id:"p20",name:"Green Chillies",category:"produce",size:"250g",price:1.49,stock:"in",special:false,best:false,emoji:"🌿",image:null},
+    {id:"p21",name:"Fresh Curry Leaves",category:"produce",size:"100g",price:1.99,stock:"in",special:false,best:false,emoji:"🌿",image:null},
+    {id:"p22",name:"Indian Mangoes (Alphonso)",category:"produce",size:"1 box",price:24.99,stock:"in",special:true,best:true,emoji:"🥭",image:null},
+    {id:"p23",name:"Kingfisher Premium Lager",category:"beer",size:"6-pack 355ml",price:14.99,stock:"in",special:false,best:true,emoji:"🍺",image:null},
+    {id:"p24",name:"Taj Mahal Beer",category:"beer",size:"6-pack 330ml",price:13.99,stock:"in",special:false,best:false,emoji:"🍺",image:null},
+    {id:"p25",name:"Godfather Strong Beer",category:"beer",size:"650ml",price:4.49,stock:"in",special:false,best:false,emoji:"🍺",image:null}
+  ];
+}
+function defaultSettings(){
+  const today = new Date();
+  const nextWeek = new Date(today.getTime() + 6*24*60*60*1000);
+  return {
+    bannerText:"🔥 Weekly Specials in store now! • 🚚 Free delivery on orders over $50 in Brampton • 🌶️ Fresh stock every week at Singh Bazaar!",
+    whatsapp:"19055551234",
+    flyerImage:null,
+    flyerDateFrom: today.toISOString().slice(0,10),
+    flyerDateTo: nextWeek.toISOString().slice(0,10)
+  };
+}
+
+/* ============ STATE ============ */
+let products = JSON.parse(localStorage.getItem("sbProducts") || "null") || defaultProducts();
+let settings = JSON.parse(localStorage.getItem("sbSettings") || "null") || defaultSettings();
+let cart = JSON.parse(localStorage.getItem("sbCart") || "null") || {};
+let currentCategory = "all";
+let fulfillment = "pickup";
+let adminTab = "products";
+
+function saveProducts(){ localStorage.setItem("sbProducts", JSON.stringify(products)); }
+function saveSettings(){ localStorage.setItem("sbSettings", JSON.stringify(settings)); }
+function saveCart(){ localStorage.setItem("sbCart", JSON.stringify(cart)); }
+
+/* ============ INIT / RENDER ============ */
+function init(){
+  if(!localStorage.getItem("sbProducts")) saveProducts();
+  if(!localStorage.getItem("sbSettings")) saveSettings();
+  renderMarquee();
+  renderChips();
+  renderBanners();
+  renderProducts();
+  updateCartBadges();
+}
+
+function renderMarquee(){
+  const txt = settings.bannerText;
+  document.getElementById("marqueeTrack").innerHTML = txt + "&nbsp;&nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp;&nbsp;" + txt;
+}
+
+function renderChips(){
+  const row = document.getElementById("chipsRow");
+  row.innerHTML = CHIPS.map(c => `
+    <button class="chip ${c.id===currentCategory?'active':''} ${c.id==='beer'?'beer-chip':''}" onclick="${c.id==='special' ? 'openFlyerPage()' : `selectCategory('${c.id}')`}">
+      <span>${c.emoji}</span><span>${c.label}</span>
+    </button>`).join("");
+}
+
+function renderBanners(){
+  const area = document.getElementById("bannerArea");
+  if(currentCategory === "beer"){
+    area.innerHTML = `<div class="alcohol-banner"><h3>🔞 Alcohol Orders</h3><p>Alcohol orders require valid government ID. No alcohol will be provided to anyone under 19.</p></div>`;
+  } else if(currentCategory === "all"){
+    const dateRange = formatDateRange(settings.flyerDateFrom, settings.flyerDateTo);
+    area.innerHTML = `<div class="specials-banner" onclick="openFlyerPage()"><span class="tag">📰</span><h3>Weekly Flyer Deals</h3><p>${dateRange ? "Valid " + dateRange : "Tap to see this week's flyer"}</p></div>`;
+  } else {
+    area.innerHTML = "";
+  }
+}
+
+function selectCategory(id){
+  if(id === "beer" && sessionStorage.getItem("sbAgeVerified") !== "true"){
+    document.getElementById("ageGateModal").classList.remove("hidden");
+    return;
+  }
+  currentCategory = id;
+  document.getElementById("searchInput").value = "";
+  renderChips();
+  renderBanners();
+  renderProducts();
+}
+
+function confirmAge(){
+  sessionStorage.setItem("sbAgeVerified","true");
+  document.getElementById("ageGateModal").classList.add("hidden");
+  currentCategory = "beer";
+  renderChips();
+  renderBanners();
+  renderProducts();
+}
+function declineAge(){
+  document.getElementById("ageGateModal").classList.add("hidden");
+}
+function viewSpecialProducts(){
+  closeModal("flyerModal");
+  currentCategory = "special";
+  document.getElementById("searchInput").value = "";
+  renderChips();
+  renderBanners();
+  renderProducts();
+}
+
+function formatDateRange(from, to){
+  if(!from && !to) return "";
+  const fromD = from ? new Date(from + "T00:00:00") : null;
+  const toD = to ? new Date(to + "T00:00:00") : null;
+  if(fromD && toD){
+    const fromTxt = fromD.toLocaleDateString("en-US",{month:"short",day:"numeric"});
+    const toTxt = toD.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"});
+    return `${fromTxt} – ${toTxt}`;
+  }
+  if(fromD) return `From ${fromD.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})}`;
+  if(toD) return `Until ${toD.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})}`;
+  return "";
+}
+
+function openFlyerPage(){
+  const imgWrap = document.getElementById("flyerImageWrap");
+  if(settings.flyerImage){
+    imgWrap.innerHTML = `<img src="${settings.flyerImage}" alt="Weekly Flyer">`;
+  } else {
+    imgWrap.innerHTML = `<div class="empty-state"><div class="e">📰</div>No flyer uploaded yet.<br>Check back soon for this week's deals!</div>`;
+  }
+  const dateRange = formatDateRange(settings.flyerDateFrom, settings.flyerDateTo);
+  document.getElementById("flyerDateRangeTxt").textContent = dateRange ? `Valid ${dateRange}` : "Dates coming soon";
+  document.getElementById("flyerModal").classList.remove("hidden");
+}
+
+function getFilteredProducts(){
+  const term = document.getElementById("searchInput").value.trim().toLowerCase();
+  if(term){
+    return products.filter(p => p.category !== "beer" &&
+      (p.name.toLowerCase().includes(term) || CATEGORY_LABEL[p.category].toLowerCase().includes(term)));
+  }
+  if(currentCategory === "beer") return products.filter(p => p.category === "beer");
+  if(currentCategory === "special") return products.filter(p => p.special && p.category !== "beer");
+  if(currentCategory === "all") return products.filter(p => p.category !== "beer");
+  return products.filter(p => p.category === currentCategory);
+}
+
+function renderProducts(){
+  if(document.getElementById("searchInput").value.trim()){
+    currentCategory = currentCategory; // keep, search overrides view only
+  }
+  const list = getFilteredProducts();
+  const titleEl = document.getElementById("sectionTitle");
+  const term = document.getElementById("searchInput").value.trim();
+  if(term){ titleEl.textContent = `Results for "${term}"`; }
+  else {
+    const chip = CHIPS.find(c=>c.id===currentCategory);
+    titleEl.textContent = chip ? chip.label : "All Products";
+  }
+  const grid = document.getElementById("productGrid");
+  if(list.length === 0){
+    grid.innerHTML = "";
+    grid.insertAdjacentHTML("afterend", "");
+    document.getElementById("productGrid").innerHTML = `<div class="empty-state" style="grid-column:1/-1;"><div class="e">🔍</div>No products found.</div>`;
+    return;
+  }
+  grid.innerHTML = list.map(p => renderCard(p)).join("");
+}
+
+function renderCard(p){
+  const qty = cart[p.id] || 0;
+  const img = p.image ? `<img src="${p.image}" alt="${p.name}">` : (p.emoji || CATEGORY_EMOJI[p.category] || "🛍️");
+  const badges = `<div class="badge-row">
+      ${p.special ? '<span class="tiny-badge special">🔥 Special</span>' : ''}
+      ${p.best ? '<span class="tiny-badge best">⭐ Best Seller</span>' : ''}
+      ${p.stock === 'out' ? '<span class="tiny-badge out">Out of Stock</span>' : ''}
+    </div>`;
+  let control;
+  if(p.stock === "out"){
+    control = `<button class="add-btn disabled" disabled>Unavailable</button>`;
+  } else if(qty > 0){
+    control = `<div class="stepper">
+      <button onclick="changeQty('${p.id}',-1)">−</button>
+      <span>${qty}</span>
+      <button onclick="changeQty('${p.id}',1)">+</button>
+    </div>`;
+  } else {
+    control = `<button class="add-btn" onclick="changeQty('${p.id}',1)">+ Add</button>`;
+  }
+  return `<div class="card">
+    <div class="card-image">${badges}${img}</div>
+    <div class="card-body">
+      <div class="card-name">${p.name}</div>
+      <div class="card-size">${p.size}</div>
+      <div class="card-bottom">
+        <div class="card-price">$${p.price.toFixed(2)}</div>
+        <div class="stock-pill ${p.stock}">${p.stock==='in'?'In Stock':'Out of Stock'}</div>
+      </div>
+      ${control}
+    </div>
+  </div>`;
+}
+
+function focusSearch(){ document.getElementById("searchInput").focus(); window.scrollTo({top:0,behavior:"smooth"}); }
+function goHome(){
+  currentCategory = "all";
+  document.getElementById("searchInput").value = "";
+  renderChips(); renderBanners(); renderProducts();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* ============ CART ============ */
+function changeQty(id, delta){
+  const p = products.find(x=>x.id===id);
+  if(!p) return;
+  if(p.stock === "out" && delta > 0) return;
+  const newQty = (cart[id]||0) + delta;
+  if(newQty <= 0) delete cart[id];
+  else cart[id] = newQty;
+  saveCart();
+  updateCartBadges();
+  renderProducts();
+  if(!document.getElementById("cartModal").classList.contains("hidden")) renderCart();
+  if(delta > 0) showToast(`Added ${p.name} to cart`);
+}
+
+function cartCount(){ return Object.values(cart).reduce((a,b)=>a+b,0); }
+function cartTotal(){
+  return Object.entries(cart).reduce((sum,[id,qty])=>{
+    const p = products.find(x=>x.id===id);
+    return p ? sum + p.price*qty : sum;
+  },0);
+}
+function cartHasAlcohol(){
+  return Object.keys(cart).some(id=>{
+    const p = products.find(x=>x.id===id);
+    return p && p.category === "beer";
+  });
+}
+function updateCartBadges(){
+  const c = cartCount();
+  [document.getElementById("cartBadgeTop"), document.getElementById("cartBadgeNav")].forEach(el=>{
+    el.textContent = c;
+    el.style.display = c>0 ? "flex" : "none";
+  });
+}
+
+function openCart(){
+  renderCart();
+  document.getElementById("cartModal").classList.remove("hidden");
+}
+function renderCart(){
+  const body = document.getElementById("cartBody");
+  const footer = document.getElementById("cartFooter");
+  const ids = Object.keys(cart);
+  if(ids.length === 0){
+    body.innerHTML = `<div class="empty-state"><div class="e">🛍️</div>Your cart is empty.<br>Add some fresh groceries!</div>`;
+    footer.innerHTML = "";
+    return;
+  }
+  body.innerHTML = ids.map(id=>{
+    const p = products.find(x=>x.id===id);
+    if(!p) return "";
+    const img = p.image ? `<img src="${p.image}">` : (p.emoji || CATEGORY_EMOJI[p.category] || "🛍️");
+    return `<div class="cart-item">
+      <div class="cart-thumb">${img}</div>
+      <div class="cart-info">
+        <div class="nm">${p.name}</div>
+        <div class="sz">${p.size}</div>
+        <div class="cart-row-bottom">
+          <div class="stepper" style="margin-top:0;">
+            <button onclick="changeQty('${p.id}',-1)">−</button>
+            <span>${cart[id]}</span>
+            <button onclick="changeQty('${p.id}',1)">+</button>
+          </div>
+          <div><span class="cart-price">$${(p.price*cart[id]).toFixed(2)}</span><a class="remove-link" onclick="removeFromCart('${p.id}')">Remove</a></div>
+        </div>
+      </div>
+    </div>`;
+  }).join("");
+
+  const total = cartTotal();
+  const alcoholNote = cartHasAlcohol() ? `<p style="font-size:11px;color:var(--red-700);font-weight:600;margin-top:6px;">🔞 This order contains alcohol — valid ID required.</p>` : "";
+  footer.innerHTML = `
+    <div class="totals-row grand"><span>Total</span><span>$${total.toFixed(2)}</span></div>
+    ${alcoholNote}
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:12px;">
+      <button class="btn btn-primary" onclick="openCheckout()">Proceed to Checkout</button>
+      <button class="btn btn-whatsapp" onclick="quickWhatsappOrder()">💬 Fast Order via WhatsApp</button>
+    </div>`;
+}
+function removeFromCart(id){
+  delete cart[id];
+  saveCart(); updateCartBadges(); renderProducts(); renderCart();
+}
+
+function quickWhatsappOrder(){
+  if(Object.keys(cart).length === 0){ showToast("Your cart is empty"); return; }
+  const text = buildOrderText({name:"(to be provided)",phone:"",email:"",fulfillment:"(please specify)",address:"",notes:""}, true);
+  const num = settings.whatsapp.replace(/[^\d]/g,"");
+  window.open(`https://wa.me/${num}?text=${encodeURIComponent(text)}`, "_blank");
+}
+
+/* ============ CHECKOUT ============ */
+function openCheckout(){
+  if(Object.keys(cart).length === 0){ showToast("Your cart is empty"); return; }
+  closeModal("cartModal");
+  const hasAlcohol = cartHasAlcohol();
+  document.getElementById("checkoutAlcoholNotice").innerHTML = hasAlcohol ?
+    `<div class="alert-box"><b>🔞 Alcohol Order Notice:</b> Alcohol orders require valid government ID. No alcohol will be provided to anyone under 19.</div>` : "";
+  document.getElementById("checkoutAlcoholCheck").innerHTML = hasAlcohol ?
+    `<div class="check-row"><input type="checkbox" id="ageConfirmCheckbox"><span>I confirm I am 19+ and will show valid ID at pickup or delivery.</span></div>` : "";
+  document.getElementById("checkoutErr").style.display = "none";
+  document.getElementById("checkoutModal").classList.remove("hidden");
+}
+function setFulfillment(type){
+  fulfillment = type;
+  document.getElementById("optPickup").classList.toggle("checked", type==="pickup");
+  document.getElementById("optDelivery").classList.toggle("checked", type==="delivery");
+  document.getElementById("addressGroup").style.display = type==="delivery" ? "block" : "none";
+  document.getElementById("custAddress").required = (type==="delivery");
+}
+
+function buildOrderText(order, isQuick){
+  const itemsLines = Object.keys(cart).map(id=>{
+    const p = products.find(x=>x.id===id);
+    if(!p) return "";
+    const qty = cart[id];
+    return `• ${p.name} (${p.size}) x${qty} — $${(p.price*qty).toFixed(2)}`;
+  }).join("\n");
+  const total = cartTotal();
+  let txt = `🛒 *NEW ORDER — Singh Bazaar Brampton*\n`;
+  txt += `Order#: ${order.orderId || "QUICK-" + Date.now().toString().slice(-6)}\n\n`;
+  txt += `Name: ${order.name}\nPhone: ${order.phone}\n`;
+  if(order.email) txt += `Email: ${order.email}\n`;
+  txt += `Fulfillment: ${order.fulfillment}\n`;
+  if(order.address) txt += `Address: ${order.address}\n`;
+  if(order.notes) txt += `Notes: ${order.notes}\n`;
+  txt += `\nItems:\n${itemsLines}\n\nTotal: $${total.toFixed(2)}\n`;
+  if(cartHasAlcohol()) txt += `\n🔞 Alcohol order — Valid ID confirmed: ${isQuick ? "Pending confirmation at delivery" : "Yes"}`;
+  return txt;
+}
+
+async function submitOrder(e){
+  e.preventDefault();
+  const errEl = document.getElementById("checkoutErr");
+  errEl.style.display = "none";
+  if(fulfillment === "delivery" && !document.getElementById("custAddress").value.trim()){
+    errEl.textContent = "Please enter a delivery address.";
+    errEl.style.display = "block";
+    return;
+  }
+  if(cartHasAlcohol()){
+    const cb = document.getElementById("ageConfirmCheckbox");
+    if(!cb || !cb.checked){
+      errEl.textContent = "Please confirm you are 19+ to order alcohol.";
+      errEl.style.display = "block";
+      return;
+    }
+  }
+  const order = {
+    orderId: "SB-" + Date.now().toString().slice(-6),
+    name: document.getElementById("custName").value.trim(),
+    phone: document.getElementById("custPhone").value.trim(),
+    email: document.getElementById("custEmail").value.trim(),
+    fulfillment: fulfillment === "delivery" ? "Delivery" : "Pickup",
+    address: fulfillment === "delivery" ? document.getElementById("custAddress").value.trim() : "",
+    notes: document.getElementById("custNotes").value.trim()
+  };
+  const orderText = buildOrderText(order, false);
+
+  // Try sending via FormSubmit (no backend, no API key needed)
+  try{
+    const fd = new FormData();
+    fd.append("_subject", `New Order ${order.orderId} - Singh Bazaar Brampton`);
+    fd.append("name", order.name);
+    fd.append("phone", order.phone);
+    fd.append("email", order.email);
+    fd.append("order_details", orderText);
+    await fetch(`https://formsubmit.co/${STORE_EMAIL}`, {
+      method: "POST",
+      headers: {"Accept":"application/json"},
+      body: fd
+    });
+  }catch(err){ /* network/email send failed — order still confirmed locally, WhatsApp available as backup */ }
+
+  // Save order locally too
+  const orders = JSON.parse(localStorage.getItem("sbOrders")||"[]");
+  orders.push({...order, items: {...cart}, total: cartTotal(), time: new Date().toISOString()});
+  localStorage.setItem("sbOrders", JSON.stringify(orders));
+
+  document.getElementById("confirmOrderId").textContent = order.orderId;
+  const num = settings.whatsapp.replace(/[^\d]/g,"");
+  document.getElementById("confirmWhatsappBtn").onclick = ()=>{
+    window.open(`https://wa.me/${num}?text=${encodeURIComponent(orderText)}`, "_blank");
+  };
+  cart = {};
+  saveCart();
+  updateCartBadges();
+  renderProducts();
+  closeModal("checkoutModal");
+  document.getElementById("confirmModal").classList.remove("hidden");
+}
+
+function closeAllAndReset(){
+  closeModal("confirmModal");
+  goHome();
+}
+
+/* ============ MODAL HELPERS ============ */
+function closeModal(id){ document.getElementById(id).classList.add("hidden"); }
+function showToast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(()=>t.classList.remove("show"), 2000);
+}
+
+/* ============ ADMIN ============ */
+function openAdminEntry(){
+  if(sessionStorage.getItem("sbAdminAuth") === "true"){
+    openAdminDashboard();
+  } else {
+    document.getElementById("adminEmail").value = "";
+    document.getElementById("adminPass").value = "";
+    document.getElementById("adminErr").style.display = "none";
+    document.getElementById("recoverMsg").style.display = "none";
+    document.getElementById("adminLoginModal").classList.remove("hidden");
+  }
+}
+function toggleRecover(){
+  const el = document.getElementById("recoverMsg");
+  el.style.display = el.style.display === "block" ? "none" : "block";
+}
+function handleAdminLogin(e){
+  e.preventDefault();
+  const email = document.getElementById("adminEmail").value.trim();
+  const pass = document.getElementById("adminPass").value;
+  if(email === ADMIN_EMAIL && pass === ADMIN_PASS){
+    sessionStorage.setItem("sbAdminAuth","true");
+    closeModal("adminLoginModal");
+    openAdminDashboard();
+  } else {
+    document.getElementById("adminErr").style.display = "block";
+  }
+}
+function logoutAdmin(){
+  sessionStorage.removeItem("sbAdminAuth");
+  closeModal("adminDashModal");
+  showToast("Logged out of admin");
+}
+function openAdminDashboard(){
+  adminTab = "products";
+  document.getElementById("tabProducts").classList.add("active");
+  document.getElementById("tabSettings").classList.remove("active");
+  renderAdminBody();
+  document.getElementById("adminDashModal").classList.remove("hidden");
+}
+function showAdminTab(tab){
+  adminTab = tab;
+  document.getElementById("tabProducts").classList.toggle("active", tab==="products");
+  document.getElementById("tabSettings").classList.toggle("active", tab==="settings");
+  renderAdminBody();
+}
+function renderAdminBody(){
+  const body = document.getElementById("adminBody");
+  if(adminTab === "products"){
+    body.innerHTML = `
+      <button class="btn btn-primary" style="margin-bottom:14px;" onclick="openProductForm()">+ Add New Product</button>
+      <div id="adminProductList"></div>`;
+    const list = document.getElementById("adminProductList");
+    list.innerHTML = products.map(p=>{
+      const img = p.image ? `<img src="${p.image}">` : (p.emoji || CATEGORY_EMOJI[p.category] || "🛍️");
+      return `<div class="admin-product-row">
+        <div class="admin-thumb">${img}</div>
+        <div class="admin-info">
+          <div class="nm">${p.name}</div>
+          <div class="meta">${CATEGORY_LABEL[p.category]} • ${p.size} • $${p.price.toFixed(2)} • ${p.stock==='in'?'In Stock':'Out of Stock'}${p.special?' • 🔥':''}${p.best?' • ⭐':''}</div>
+        </div>
+        <div class="admin-actions">
+          <button class="icon-sq" onclick="toggleStock('${p.id}')" title="Toggle stock">📦</button>
+          <button class="icon-sq" onclick="openProductForm('${p.id}')" title="Edit">✏️</button>
+          <button class="icon-sq" onclick="deleteProduct('${p.id}')" title="Delete">🗑️</button>
+        </div>
+      </div>`;
+    }).join("");
+  } else {
+    flyerImageData = settings.flyerImage || null;
+    body.innerHTML = `
+      <div class="form-group">
+        <label>Banner / Marquee Text</label>
+        <textarea id="settingsBanner">${settings.bannerText}</textarea>
+      </div>
+      <div class="form-group">
+        <label>WhatsApp Number (with country code, digits only)</label>
+        <input type="text" id="settingsWhatsapp" value="${settings.whatsapp}" placeholder="e.g. 19055551234">
+      </div>
+      <hr style="margin:20px 0;border:none;border-top:1.5px dashed var(--gray-300);">
+      <h3 style="font-family:var(--font-display);font-size:15px;color:var(--green-900);margin-bottom:12px;">📰 Weekly Flyer</h3>
+      <div class="img-preview-row">
+        <div class="img-preview" id="flyerAdminPreview" style="width:84px;height:84px;">${settings.flyerImage ? `<img src="${settings.flyerImage}">` : "📰"}</div>
+        <div style="flex:1;">
+          <label style="font-size:12px;font-weight:700;color:var(--ink-soft);display:block;margin-bottom:5px;">Upload Flyer Image</label>
+          <input type="file" accept="image/*" onchange="handleFlyerImageUpload(event)">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Valid From</label>
+        <input type="date" id="flyerFrom" value="${settings.flyerDateFrom || ''}">
+      </div>
+      <div class="form-group">
+        <label>Valid To</label>
+        <input type="date" id="flyerTo" value="${settings.flyerDateTo || ''}">
+      </div>
+      <button class="btn btn-primary" onclick="saveStoreSettings()">Save Settings</button>
+    `;
+  }
+}
+let flyerImageData = null;
+function handleFlyerImageUpload(e){
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev){
+    flyerImageData = ev.target.result;
+    document.getElementById("flyerAdminPreview").innerHTML = `<img src="${flyerImageData}">`;
+  };
+  reader.readAsDataURL(file);
+}
+function toggleStock(id){
+  const p = products.find(x=>x.id===id);
+  if(!p) return;
+  p.stock = p.stock === "in" ? "out" : "in";
+  saveProducts();
+  renderAdminBody();
+  renderProducts();
+}
+function saveStoreSettings(){
+  settings.bannerText = document.getElementById("settingsBanner").value.trim();
+  settings.whatsapp = document.getElementById("settingsWhatsapp").value.replace(/[^\d]/g,"");
+  settings.flyerImage = flyerImageData;
+  settings.flyerDateFrom = document.getElementById("flyerFrom").value;
+  settings.flyerDateTo = document.getElementById("flyerTo").value;
+  saveSettings();
+  renderMarquee();
+  renderBanners();
+  showToast("Settings saved");
+}
+
+let pfImageData = null;
+function openProductForm(id){
+  pfImageData = null;
+  document.getElementById("productForm").reset();
+  document.getElementById("pfImgPreview").innerHTML = "🛍️";
+  if(id){
+    const p = products.find(x=>x.id===id);
+    document.getElementById("productFormTitle").textContent = "Edit Product";
+    document.getElementById("pfId").value = p.id;
+    document.getElementById("pfName").value = p.name;
+    document.getElementById("pfCategory").value = p.category;
+    document.getElementById("pfSize").value = p.size;
+    document.getElementById("pfPrice").value = p.price;
+    document.getElementById("pfEmoji").value = p.emoji || "";
+    document.getElementById("pfStock").value = p.stock;
+    document.getElementById("pfSpecial").checked = p.special;
+    document.getElementById("pfBest").checked = p.best;
+    if(p.image){
+      pfImageData = p.image;
+      document.getElementById("pfImgPreview").innerHTML = `<img src="${p.image}">`;
+    } else {
+      document.getElementById("pfImgPreview").innerHTML = p.emoji || CATEGORY_EMOJI[p.category] || "🛍️";
+    }
+  } else {
+    document.getElementById("productFormTitle").textContent = "Add Product";
+    document.getElementById("pfId").value = "";
+  }
+  document.getElementById("productFormModal").classList.remove("hidden");
+}
+function onCategoryChange(){
+  if(!document.getElementById("pfEmoji").value){
+    document.getElementById("pfEmoji").value = CATEGORY_EMOJI[document.getElementById("pfCategory").value] || "";
+  }
+}
+function handleImageUpload(e){
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev){
+    pfImageData = ev.target.result;
+    document.getElementById("pfImgPreview").innerHTML = `<img src="${pfImageData}">`;
+  };
+  reader.readAsDataURL(file);
+}
+function saveProduct(e){
+  e.preventDefault();
+  const id = document.getElementById("pfId").value || ("p" + Date.now());
+  const category = document.getElementById("pfCategory").value;
+  const data = {
+    id,
+    name: document.getElementById("pfName").value.trim(),
+    category,
+    size: document.getElementById("pfSize").value.trim(),
+    price: parseFloat(document.getElementById("pfPrice").value),
+    emoji: document.getElementById("pfEmoji").value.trim() || CATEGORY_EMOJI[category] || "🛍️",
+    stock: document.getElementById("pfStock").value,
+    special: document.getElementById("pfSpecial").checked,
+    best: document.getElementById("pfBest").checked,
+    image: pfImageData
+  };
+  const idx = products.findIndex(p=>p.id===id);
+  if(idx >= 0){ data.image = pfImageData !== null ? pfImageData : products[idx].image; products[idx] = data; }
+  else products.push(data);
+  saveProducts();
+  closeModal("productFormModal");
+  renderAdminBody();
+  renderChips();
+  renderProducts();
+  showToast("Product saved");
+}
+function deleteProduct(id){
+  if(!confirm("Delete this product?")) return;
+  products = products.filter(p=>p.id!==id);
+  saveProducts();
+  renderAdminBody();
+  renderProducts();
+  showToast("Product deleted");
+}
+
+init();
+</script>
+</body>
+</html>
